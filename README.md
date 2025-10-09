@@ -32,7 +32,7 @@
 <td>
 
 **📜 Smart Contract**
-[0x78257...2cd90ce](https://sepolia.etherscan.io/address/0x78257622318fC85f2a9c909DD7aF9d0142cd90ce)
+[0xCca46D5999......C3F84f5c18e](https://sepolia.etherscan.io/address/0xCca46D59993Df50Bb3D9b169A199fC3F84f5c18e)
 *Deployed on Sepolia testnet*
 
 </td>
@@ -714,7 +714,7 @@ MIT License - see [LICENSE](./LICENSE) file for details.
 - **Live Demo**: [Parking Reservation App](https://arking-reservation.vercel.app/)
 - **GitHub Repository**: [ParkingReservation](https://github.com/CameronCrist/fhevm-react-template)
 - **Zama Challenge**: [Challenge Page](https://www.zama.ai/fhe-challenge)
-- **Contract Address**: [0x78257622318fC85f2a9c909DD7aF9d0142cd90ce](https://sepolia.etherscan.io/address/0x78257622318fC85f2a9c909DD7aF9d0142cd90ce) (Sepolia)
+- **Contract Address**: [0xCca46D59993Df50Bb3D9b169A199fC3F84f5c18e](https://sepolia.etherscan.io/address/0xCca46D59993Df50Bb3D9b169A199fC3F84f5c18e) (Sepolia)
 
 ---
 
