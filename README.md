@@ -28,13 +28,7 @@
 </td>
 </tr>
 <tr>
-<td>
 
-**🎥 Video Demo**
-[demo.mp4](./demo.mp4) (~663KB)
-*Download the complete demonstration video*
-
-</td>
 <td>
 
 **📜 Smart Contract**
@@ -537,15 +531,6 @@ npm run lint
 
 ---
 
-## 🎥 Video Demo
-
-**📹 Full Demonstration Available**: [demo.mp4](./demo.mp4) (~663KB)
-
-> **Note**: Download and watch the complete demonstration video showcasing:
-> - Universal FHEVM SDK setup and usage
-> - Live parking reservation application
-> - Complete encryption/decryption workflows
-> - Real-world smart contract integration
 
 ### 🌐 Live Demo
 
@@ -670,7 +655,7 @@ const { encrypt, isEncrypting } = useEncrypt(client);
 
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/fhevm-universal-sdk.git
+git clone https://github.com/CameronCrist/fhevm-react-template.git
 cd fhevm-universal-sdk
 
 # Install dependencies
@@ -701,7 +686,7 @@ Contributions are welcome! This project is built for the community.
 ### Development Setup
 
 ```bash
-git clone https://github.com/yourusername/fhevm-universal-sdk.git
+git clone https://github.com/CameronCrist/fhevm-react-template.git
 cd fhevm-universal-sdk
 npm install
 npm run dev
@@ -728,7 +713,6 @@ MIT License - see [LICENSE](./LICENSE) file for details.
 
 - **Live Demo**: [Parking Reservation App](https://arking-reservation.vercel.app/)
 - **GitHub Repository**: [ParkingReservation](https://github.com/CameronCrist/fhevm-react-template)
-- **Video Demo**: [demo.mp4](./demo.mp4) (Download to watch)
 - **Zama Challenge**: [Challenge Page](https://www.zama.ai/fhe-challenge)
 - **Contract Address**: [0x78257622318fC85f2a9c909DD7aF9d0142cd90ce](https://sepolia.etherscan.io/address/0x78257622318fC85f2a9c909DD7aF9d0142cd90ce) (Sepolia)
 
