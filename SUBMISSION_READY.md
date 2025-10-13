@@ -25,7 +25,7 @@
 
 ### Video Demo
 - **File**: `demo.mp4`
-- **Location**: Repository root (`D:\zamadapp\dapp132\demo.mp4`)
+- **Location**: Repository root (`D:\demo.mp4`)
 - **Duration**: ~12 minutes
 - **Content**: Complete SDK demonstration
 
@@ -134,7 +134,7 @@ examples/parking-reservation/
 ### 4. Video Demo
 
 **File**: `demo.mp4`
-**Access**: Download from `D:\zamadapp\dapp132\demo.mp4`
+**Access**: Download from `D:\demo.mp4`
 
 **Content**:
 1. Introduction & problem statement (0:00-2:00)
@@ -239,7 +239,7 @@ examples/parking-reservation/
 
 ### File Information
 - **Filename**: demo.mp4
-- **Location**: `D:\zamadapp\dapp132\demo.mp4`
+- **Location**: `D:\demo.mp4`
 - **Format**: MP4
 - **Duration**: ~12 minutes
 - **Resolution**: 1080p
@@ -259,7 +259,7 @@ examples/parking-reservation/
 ### How to Access
 ```bash
 # Video is located at:
-D:\zamadapp\dapp132\demo.mp4
+D:\demo.mp4
 
 # Or download from repository after submission
 ```
