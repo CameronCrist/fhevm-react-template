@@ -36,6 +36,13 @@
 *Deployed on Sepolia testnet*
 
 </td>
+<td>
+
+**🎥 Demo Video**
+[demo.mp4](./demo.mp4)
+*Download and watch the complete demonstration video*
+
+</td>
 </tr>
 </table>
 
@@ -556,7 +563,7 @@ fhevm-universal-sdk/
    - Full-featured demo application
    - Multiple use cases demonstrated
    - Production-ready code
-   - [View Demo](https://fhevm-universal-sdk.vercel.app)
+
 
 2. **Parking Reservation System** (Real-world Example)
    - Confidential parking spot booking
@@ -625,13 +632,24 @@ npm run lint
 
 ### Quick Links
 
-- [Getting Started Guide](./docs/getting-started.md)
-- [API Reference](./docs/api-reference.md)
+- [Quick Start Guide](./QUICK_START.md)
+- [Framework Summary](./FRAMEWORK_SUMMARY.md)
+- [Project Structure](./PROJECT_STRUCTURE.md)
+- [Deployment Guide](./DEPLOYMENT.md)
+- [Upgrade Summary](./UPGRADE_SUMMARY.md)
+
+### Framework Guides
+
 - [React Guide](./docs/framework-guides/react.md)
 - [Vue Guide](./docs/framework-guides/vue.md)
 - [Next.js Guide](./docs/framework-guides/nextjs.md)
 - [Node.js Guide](./docs/framework-guides/nodejs.md)
-- [Examples](./docs/examples.md)
+
+### Example Applications
+
+- [Parking Reservation (Next.js)](./examples/parking-reservation/)
+- [Vue Voting App](./examples/vue-voting-app/) - [Documentation](./examples/vue-voting-app/README.md)
+- [Node.js API Server](./examples/nodejs-api-server/) - [Documentation](./examples/nodejs-api-server/README.md)
 
 ### External Resources
 
@@ -654,27 +672,52 @@ This live deployment demonstrates:
 - ✅ Real-time UI updates and status displays
 - ✅ Full FHEVM SDK integration in production
 
-### Demo Highlights
+### 🎥 Demo Video
 
-1. **Quick Setup** (0:00-2:00)
-   - Installation in 30 seconds
-   - First encryption in 10 lines
-   - Running the Next.js showcase
+**Download and watch**: [demo.mp4](./demo.mp4) (~663KB)
 
-2. **Framework Demonstrations** (2:00-6:00)
-   - React hooks in action
-   - Vue composables example
-   - Node.js backend service
+> **Note**: This is a downloadable video file. Please download the `demo.mp4` file from the repository root to watch the complete demonstration of all features and use cases.
 
-3. **Real-world Use Case** (6:00-10:00)
-   - Parking Reservation app walkthrough
-   - Confidential booking flow
-   - Privacy features highlighted
+**Video Contents:**
 
-4. **Design Choices** (10:00-12:00)
-   - Why framework-agnostic?
-   - wagmi-like API inspiration
-   - Performance optimizations
+1. **Quick Setup & Installation** (0:00-2:00)
+   - Clone repository and install dependencies
+   - Environment configuration walkthrough
+   - First encryption in under 10 lines of code
+   - Running the Next.js parking reservation app
+
+2. **Framework Integrations** (2:00-6:00)
+   - **React Hooks**: useEncrypt, useDecrypt demonstrations
+   - **Vue 3 Composables**: Voting app walkthrough
+   - **Node.js API**: Server-side encryption with CLI tools
+   - Comparing development experience across frameworks
+
+3. **Parking Reservation App** (6:00-10:00)
+   - User registration with encrypted credit scores
+   - Parking spot creation with confidential pricing
+   - Making reservations with encrypted durations
+   - Real-time UI feedback and loading states
+   - Error handling and validation
+
+4. **Advanced Features** (10:00-12:00)
+   - Decryption workflow with EIP-712 signatures
+   - Batch encryption operations
+   - Contract interaction patterns
+   - Performance metrics and optimization tips
+
+5. **Design Philosophy** (12:00-14:00)
+   - Why framework-agnostic architecture?
+   - wagmi-inspired API design decisions
+   - TypeScript-first development approach
+   - Production deployment strategies
+
+**Features Demonstrated in Video**:
+- 🔐 **Client-Side Encryption** - Secure data before blockchain submission
+- 🔓 **Permission-Based Decryption** - EIP-712 signature workflow
+- ⚡ **Real-Time Updates** - Loading states and error handling
+- 🎨 **Modern UI/UX** - Professional interface with Tailwind CSS
+- 📦 **Multiple Examples** - React, Vue, and Node.js integrations
+- 🚀 **Production Ready** - Deployed on Vercel with full functionality
 
 ### 🎯 What You'll See in the Demo
 
@@ -857,7 +900,7 @@ MIT License - see [LICENSE](./LICENSE) file for details.
 ## 🔗 Links
 
 - **Live Demo**: [Parking Reservation App](https://arking-reservation.vercel.app/)
-- **GitHub Repository**: [ParkingReservation](https://github.com/CameronCrist/fhevm-react-template)
+- **GitHub Repository**: [Fhevm-react-template](https://github.com/CameronCrist/fhevm-react-template)
 - **Zama Challenge**: [Challenge Page](https://www.zama.ai/fhe-challenge)
 - **Contract Address**: [0xCca46D59993Df50Bb3D9b169A199fC3F84f5c18e](https://sepolia.etherscan.io/address/0xCca46D59993Df50Bb3D9b169A199fC3F84f5c18e) (Sepolia)
 
