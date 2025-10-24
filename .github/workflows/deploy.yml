@@ -1,1 +1,76 @@
+name: Deploy to Production
 
+on:
+  push:
+    branches: [main]
+    tags:
+      - 'v*'
+
+jobs:
+  deploy-examples:
+    name: Deploy Examples
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build SDK
+        run: |
+          cd packages/fhevm-sdk
+          npm run build
+
+      - name: Build parking reservation
+        run: |
+          cd examples/parking-reservation
+          npm run build
+
+      - name: Deploy to Vercel
+        if: github.ref == 'refs/heads/main'
+        run: echo "Deploy step placeholder - configure with Vercel token"
+        # Actual deployment would use:
+        # uses: amondnet/vercel-action@v25
+        # with:
+        #   vercel-token: ${{ secrets.VERCEL_TOKEN }}
+        #   vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+        #   vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+
+  publish-sdk:
+    name: Publish SDK to NPM
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build SDK
+        run: |
+          cd packages/fhevm-sdk
+          npm run build
+
+      - name: Publish to NPM
+        run: |
+          cd packages/fhevm-sdk
+          npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
