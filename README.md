@@ -52,9 +52,12 @@ Built for the **Zama FHE Challenge** - Demonstrating the future of confidential 
 
 | Application | Framework | Features | Location |
 |------------|-----------|----------|----------|
+| **Next.js Showcase** | Next.js 14 + App Router | Complete FHE demos, banking, medical examples | [`examples/nextjs-showcase/`](./examples/nextjs-showcase/) |
 | **Parking Reservation** | Next.js + React | Encrypted bookings, credit scores, pricing | [Live Demo](https://arking-reservation.vercel.app/) |
+| **Private Parking React** | React + Vite | React conversion of parking system | [`examples/private-parking-react/`](./examples/private-parking-react/) |
 | **Vue Voting App** | Vue 3 | Anonymous voting, proposal management | [`examples/vue-voting-app/`](./examples/vue-voting-app/) |
 | **Node.js API Server** | Express.js | REST API, CLI tool, batch operations | [`examples/nodejs-api-server/`](./examples/nodejs-api-server/) |
+| **Private Parking (Static)** | Vanilla JS + Solidity | Original FHE smart contract demo | [`examples/PrivateParkingReservation/`](./examples/PrivateParkingReservation/) |
 
 ---
 
@@ -528,8 +531,10 @@ fhevm-universal-sdk/
 │       └── README.md
 │
 ├── examples/
-│   ├── nextjs-showcase/        # Next.js demo (required)
-│   ├── parking-reservation/    # Real-world example
+│   ├── nextjs-showcase/        # Next.js 14 App Router showcase
+│   ├── parking-reservation/    # Real-world Next.js example
+│   ├── private-parking-react/  # React conversion with SDK
+│   ├── PrivateParkingReservation/ # Original static + Solidity
 │   ├── vue-voting-app/         # Vue 3 voting application
 │   └── nodejs-api-server/      # Backend API server
 │
@@ -559,11 +564,13 @@ fhevm-universal-sdk/
 
 ### Included Examples
 
-1. **Next.js Showcase** (Required)
-   - Full-featured demo application
-   - Multiple use cases demonstrated
-   - Production-ready code
-
+1. **Next.js Showcase** (App Router - NEW!)
+   - Full-featured demo application with Next.js 14 App Router
+   - Encryption & computation demos
+   - Banking and medical examples
+   - Key management interface
+   - API routes for FHE operations
+   - Location: [`examples/nextjs-showcase/`](./examples/nextjs-showcase/)
 
 2. **Parking Reservation System** (Real-world Example)
    - Confidential parking spot booking
@@ -588,6 +595,21 @@ fhevm-universal-sdk/
    - Batch encryption support
    - Security features (rate limiting, validation)
    - [Documentation](./examples/nodejs-api-server/README.md)
+
+5. **Private Parking React** (`examples/private-parking-react/`) - NEW!
+   - React conversion of the original static parking system
+   - Built with React 18 + TypeScript + Vite
+   - Modern component architecture with hooks
+   - Tailwind CSS styling
+   - Full SDK integration with context API
+   - [Documentation](./examples/private-parking-react/README.md)
+
+6. **Private Parking Reservation** (`examples/PrivateParkingReservation/`)
+   - Original static HTML + vanilla JavaScript version
+   - Complete FHE-powered Solidity smart contract
+   - Demonstrates on-chain FHE operations
+   - Hardhat deployment and testing
+   - [Documentation](./examples/PrivateParkingReservation/README.md)
 
 ### Use Cases Demonstrated
 
