@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Parking Reservation System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .card h2 {
+            color: #4a5568;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #4a5568;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #718096 0%, #4a5568 100%);
+        }
+
+        .status {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-weight: 500;
+        }
+
+        .status-success {
+            background: #c6f6d5;
+            color: #22543d;
+            border-left: 4px solid #38a169;
+        }
+
+        .status-error {
+            background: #fed7d7;
+            color: #742a2a;
+            border-left: 4px solid #e53e3e;
+        }
+
+        .status-info {
+            background: #bee3f8;
+            color: #2a4365;
+            border-left: 4px solid #3182ce;
+        }
+
+        .parking-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .parking-spot {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .parking-spot:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .spot-available {
+            border-color: #38a169;
+            background: #f0fff4;
+        }
+
+        .spot-reserved {
+            border-color: #e53e3e;
+            background: #fff5f5;
+        }
+
+        .spot-maintenance {
+            border-color: #d69e2e;
+            background: #fffaf0;
+        }
+
+        .wallet-section {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .wallet-address {
+            font-family: monospace;
+            background: #f7fafc;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            word-break: break-all;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            background: #667eea;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚗 Private Parking Reservation System</h1>
+            <p>Privacy-preserving parking resource allocation platform based on Zama FHE technology</p>
+        </div>
+
+        <div class="wallet-section">
+            <h3>Wallet Connection</h3>
+            <div id="walletInfo">
+                <button id="connectWallet" class="btn">Connect MetaMask Wallet</button>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="card">
+                <h2>🔐 User Registration</h2>
+                <div class="form-group">
+                    <label for="userId">User ID (Private):</label>
+                    <input type="number" id="userId" placeholder="Enter your private user ID" min="1" max="999999">
+                </div>
+                <div class="form-group">
+                    <label for="creditScore">Credit Score (Private):</label>
+                    <input type="number" id="creditScore" placeholder="Credit score (300-850)" min="300" max="850">
+                </div>
+                <button id="registerUser" class="btn">Register User</button>
+                <div id="registerStatus"></div>
+            </div>
+
+            <div class="card">
+                <h2>📊 System Status</h2>
+                <div id="systemStats">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number" id="totalSpots">-</div>
+                            <div class="stat-label">Total Spots</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="totalReservations">-</div>
+                            <div class="stat-label">Total Reservations</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="currentTime">-</div>
+                            <div class="stat-label">Current Time</div>
+                        </div>
+                    </div>
+                </div>
+                <button id="refreshStats" class="btn btn-secondary">Refresh Data</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🅿️ Parking Management</h2>
+            <div class="main-content">
+                <div>
+                    <h3>Add Parking Spot (Admin Only)</h3>
+                    <div class="form-group">
+                        <label for="spotPrice">Price (per hour):</label>
+                        <input type="number" id="spotPrice" placeholder="Enter price" min="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="spotLocation">Location Description:</label>
+                        <input type="text" id="spotLocation" placeholder="e.g.: Zone A Spot 1">
+                    </div>
+                    <button id="addSpot" class="btn">Add Parking Spot</button>
+                </div>
+
+                <div>
+                    <h3>Reserve Parking Spot</h3>
+                    <div class="form-group">
+                        <label for="reserveSpotId">Parking Spot ID:</label>
+                        <input type="number" id="reserveSpotId" placeholder="Enter parking spot ID" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="reserveDuration">Duration (seconds):</label>
+                        <input type="number" id="reserveDuration" placeholder="e.g.: 3600 (1 hour)" min="60" max="86400">
+                    </div>
+                    <div class="form-group">
+                        <label for="paymentAmount">Payment Amount:</label>
+                        <input type="number" id="paymentAmount" placeholder="Payment amount" min="1">
+                    </div>
+                    <button id="reserveSpot" class="btn">Reserve Parking Spot</button>
+                </div>
+            </div>
+            <div id="parkingManagementStatus"></div>
+        </div>
+
+        <div class="card">
+            <h2>🔍 Query Functions</h2>
+            <div class="main-content">
+                <div>
+                    <h3>Check Parking Spot Availability</h3>
+                    <div class="form-group">
+                        <label for="checkSpotId">Parking Spot ID:</label>
+                        <input type="number" id="checkSpotId" placeholder="Enter parking spot ID" min="0">
+                    </div>
+                    <button id="checkAvailability" class="btn">Check Availability</button>
+                </div>
+
+                <div>
+                    <h3>Verify User Identity</h3>
+                    <div class="form-group">
+                        <label for="verifyUserId">User ID:</label>
+                        <input type="number" id="verifyUserId" placeholder="Enter user ID" min="1">
+                    </div>
+                    <button id="verifyIdentity" class="btn">Verify Identity</button>
+                </div>
+            </div>
+            <div id="queryStatus"></div>
+        </div>
+
+        <div class="card">
+            <h2>📋 My Reservations</h2>
+            <button id="loadMyReservations" class="btn">Load My Reservations</button>
+            <div id="myReservations"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+    <script>
+        // Fallback if ethers fails to load
+        if (typeof ethers === 'undefined') {
+            console.log('Loading ethers fallback...');
+            document.write('<script src="https://unpkg.com/ethers@5.7.2/dist/ethers.umd.min.js"><\/script>');
+        }
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>
