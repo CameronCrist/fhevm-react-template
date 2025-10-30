@@ -517,21 +517,44 @@ fhevm-universal-sdk/
 ├── packages/
 │   └── fhevm-sdk/              # Main SDK package
 │       ├── src/
+│       │   ├── core/           # Core logic
+│       │   │   └── fhevm.ts   # Core FHEVM client
+│       │   ├── hooks/          # React hooks
+│       │   │   └── useFhevm.ts # Main FHE hook
+│       │   ├── adapters/       # Framework adapters
+│       │   │   └── vue.ts     # Vue composables
+│       │   ├── utils/          # Utility functions
+│       │   ├── types/          # Type definitions
 │       │   ├── index.ts        # Main exports
 │       │   ├── client.ts       # Core FHEVM client
-│       │   ├── types.ts        # TypeScript definitions
 │       │   ├── encryption.ts   # Encryption functions
-│       │   ├── hooks.ts        # Framework-agnostic hooks
 │       │   ├── react.ts        # React hooks
-│       │   ├── vue.ts          # Vue composables
 │       │   └── utils.ts        # Utility functions
-│       ├── tests/              # Unit tests
 │       ├── package.json
 │       ├── tsconfig.json
 │       └── README.md
 │
+├── templates/                  # Framework templates
+│   ├── nextjs/                # Next.js templates
+│   ├── react/                 # React templates
+│   └── vue/                   # Vue templates
+│
 ├── examples/
-│   ├── nextjs-showcase/        # Next.js 14 App Router showcase
+│   ├── nextjs-showcase/        # Next.js 14 App Router showcase (ENHANCED)
+│   │   ├── src/
+│   │   │   ├── app/           # App Router
+│   │   │   │   └── api/       # API routes (fhe, keys)
+│   │   │   ├── components/    # React components (ui, fhe, examples)
+│   │   │   ├── lib/           # FHE integration library (NEW)
+│   │   │   │   ├── fhe/       # FHE operations (client, server, keys, types)
+│   │   │   │   └── utils/     # Utilities (security, validation)
+│   │   │   ├── hooks/         # Custom React hooks (NEW)
+│   │   │   │   ├── useFHE.ts
+│   │   │   │   ├── useEncryption.ts
+│   │   │   │   └── useComputation.ts
+│   │   │   └── types/         # TypeScript types (NEW)
+│   │   │       ├── fhe.ts
+│   │   │       └── api.ts
 │   ├── parking-reservation/    # Real-world Next.js example
 │   ├── private-parking-react/  # React conversion with SDK
 │   ├── PrivateParkingReservation/ # Original static + Solidity
@@ -550,7 +573,8 @@ fhevm-universal-sdk/
 │
 ├── .github/
 │   └── workflows/
-│       └── ci.yml              # CI/CD pipeline
+│       ├── ci.yml              # CI/CD pipeline
+│       └── deploy.yml          # Deployment workflow
 │
 ├── package.json                # Monorepo root
 ├── tsconfig.json
@@ -564,8 +588,13 @@ fhevm-universal-sdk/
 
 ### Included Examples
 
-1. **Next.js Showcase** (App Router - NEW!)
+1. **Next.js Showcase** (App Router - ENHANCED!)
    - Full-featured demo application with Next.js 14 App Router
+   - Complete architecture following Next.js best practices
+   - **NEW**: Comprehensive lib/ directory with FHE client/server operations
+   - **NEW**: Custom React hooks (useFHE, useEncryption, useComputation)
+   - **NEW**: Type-safe FHE and API type definitions
+   - **NEW**: Security and validation utilities
    - Encryption & computation demos
    - Banking and medical examples
    - Key management interface
@@ -610,6 +639,16 @@ fhevm-universal-sdk/
    - Demonstrates on-chain FHE operations
    - Hardhat deployment and testing
    - [Documentation](./examples/PrivateParkingReservation/README.md)
+
+### Framework Templates
+
+The `templates/` directory provides quick-start templates and references to examples:
+
+- **Next.js Templates** (`templates/nextjs/`) - References to Next.js examples
+- **React Templates** (`templates/react/`) - References to React examples
+- **Vue Templates** (`templates/vue/`) - References to Vue examples
+
+Each template directory includes a README with links to the relevant examples and quick-start guides.
 
 ### Use Cases Demonstrated
 

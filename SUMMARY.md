@@ -331,8 +331,8 @@ const { encrypt, isEncrypting, error } = useEncrypt(client);
 ## 📞 Project Links
 
 ### Repository
-- **Main**: D:\zamadapp\dapp132\fhevm-react-template
-- **GitHub**: (To be published)
+- **Main**: Local repository
+- **GitHub**: https://github.com/CameronCrist/fhevm-react-template
 
 ### Documentation
 - **Main README**: ./README.md
