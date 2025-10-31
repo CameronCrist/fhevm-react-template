@@ -39,7 +39,7 @@
 <td>
 
 **🎥 Demo Video**
-[demo.mp4](./demo.mp4)
+[demo.mp4]
 *Download and watch the complete demonstration video*
 
 </td>
